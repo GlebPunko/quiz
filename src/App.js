@@ -1,130 +1,15 @@
 import './index.scss';
 import {useState} from "react";
-
-
-const questions = [
-    {
-        title: 'React - это ... ?',
-        variants: ['библиотека', 'фреймворк', 'приложение'],
-        correct: 0,
-    },
-    {
-        title: 'Компонент - это ... ',
-        variants: ['приложение', 'часть приложения или страницы', 'то, что я не знаю что такое'],
-        correct: 1,
-    },
-    {
-        title: 'Что такое JSX?',
-        variants: [
-          'Это простой HTML',
-          'Это функция',
-          'Это тот же HTML, но с возможностью выполнять JS-код',
-        ],
-        correct: 2,
-    },
-    {
-        title: 'Какая компания разработала React JS?',
-        variants: [
-            'Amazon',
-            'Facebook',
-            'Twitter',
-        ],
-        correct: 1,
-    },
-    {
-        title: 'От какого класса идет наследование всех компонентов?',
-        variants: [
-            'React.Component',
-            'ComponentReact',
-            'ReactJS.Component',
-        ],
-        correct: 0,
-    },
-    {
-        title: 'Где правильно выведен компонент через рендер?',
-        variants: [
-            '<Test>',
-            '</Test>',
-            '<Text/>',
-        ],
-        correct: 2,
-    },
-    {
-        title: 'Где правильно создан компонент?',
-        variants: [
-            'class App extends React.Component ({})',
-            'class App {}',
-            'class App extends React.Component {}',
-        ],
-        correct: 2,
-    },
-    {
-        title: 'Можно ли писать не используя Babel?',
-        variants: [
-            'Да',
-            'Нет',
-            'Без него ничего не будет работать',
-        ],
-        correct: 0,
-    },
-    {
-        title: 'Куда можно встроить готовый код из метода render()?',
-        variants: [
-            'В любой тег',
-            'Только в div',
-            'Только в тег, у которого есть id',
-        ],
-        correct: 0,
-    },
-    {
-        title: 'Как много компонентов может быть на сайте?',
-        variants: [
-            'Максимум 100',
-            'Максимум 200',
-            'Неограниченное количество',
-        ],
-        correct: 2,
-    },
-];
-
-function Result({correct}) {
-    return (
-        <div className="result">
-            <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
-            <h2>Вы отгадали {correct} ответа из 10</h2>
-            <a href="/">
-                <button>Попробовать снова</button>
-            </a>
-        </div>
-    );
-}
-
-function Game({step, question, onClickVariant}) {
-    const percentage = Math.round(step / questions.length * 100);
-
-    return (
-        <>
-            <div className="progress">
-                <div style={{ width: `${percentage}%` }} className="progress__inner"></div>
-            </div>
-            <h1>{question.title}</h1>
-            <ul>
-                {
-                    question.variants.map((text, index) =>
-                        <li key={text.toString()} onClick={() => onClickVariant(index)}>{text}</li>)
-                }
-            </ul>
-        </>
-    );
-}
+import questions from "./data/questions";
+import Game from "./components/Game/Game";
+import Result from "./components/Result/Result";
 
 function App() {
     const [step, setStep] = useState(0)
     const [correct, setCorrect] = useState(0)
-    const question = questions[step]
+    const question = questions.GetData()[step]
 
     const onClickVariant = (questionIndex) => {
-
         setStep(step + 1)
 
         if(questionIndex === question.correct) {
@@ -134,11 +19,10 @@ function App() {
 
     return (
         <div className="App">
-            {step !== questions.length
+            {step !== questions.GetData().length
                 ? <Game step={step} question={question} onClickVariant={onClickVariant}/>
                 : <Result correct={correct}/>
             }
-
         </div>
   );
 }
