@@ -4,26 +4,26 @@ class questions extends React.Component {
     static GetData() {
         return ( [
             {
-                title: 'React - это ... ?',
-                variants: ['библиотека', 'фреймворк', 'приложение'],
+                title: 'React - is ... ?',
+                variants: ['library', 'framework', 'application'],
                 correct: 0,
             },
             {
-                title: 'Компонент - это ... ',
-                variants: ['приложение', 'часть приложения или страницы', 'то, что я не знаю что такое'],
+                title: 'Component - is ... ',
+                variants: ['application', 'piece of application or side', 'what I don`t know what is'],
                 correct: 1,
             },
             {
-                title: 'Что такое JSX?',
+                title: 'What`s JSX?',
                 variants: [
-                    'Это простой HTML',
-                    'Это функция',
-                    'Это тот же HTML, но с возможностью выполнять JS-код',
+                    'This is plain HTML',
+                    'It`s function',
+                    'This is the same HTML, but with the ability to execute JS code',
                 ],
                 correct: 2,
             },
             {
-                title: 'Какая компания разработала React JS?',
+                title: 'Which company developed React JS?',
                 variants: [
                     'Amazon',
                     'Facebook',
@@ -32,7 +32,7 @@ class questions extends React.Component {
                 correct: 1,
             },
             {
-                title: 'От какого класса идет наследование всех компонентов?',
+                title: 'What class does all components inherit from?',
                 variants: [
                     'React.Component',
                     'ComponentReact',
@@ -41,7 +41,7 @@ class questions extends React.Component {
                 correct: 0,
             },
             {
-                title: 'Где правильно выведен компонент через рендер?',
+                title: 'Where is the component rendered correctly?',
                 variants: [
                     '<Test>',
                     '</Test>',
@@ -50,7 +50,7 @@ class questions extends React.Component {
                 correct: 2,
             },
             {
-                title: 'Где правильно создан компонент?',
+                title: 'Where is the component created correctly?',
                 variants: [
                     'class App extends React.Component ({})',
                     'class App {}',
@@ -59,29 +59,29 @@ class questions extends React.Component {
                 correct: 2,
             },
             {
-                title: 'Можно ли писать не используя Babel?',
+                title: 'Is it possible to write without using Babel?',
                 variants: [
-                    'Да',
-                    'Нет',
-                    'Без него ничего не будет работать',
+                    'Yes',
+                    'No',
+                    'Nothing will work without it',
                 ],
                 correct: 0,
             },
             {
-                title: 'Куда можно встроить готовый код из метода render()?',
+                title: 'Where can I embed ready-made code from the render() method?',
                 variants: [
-                    'В любой тег',
-                    'Только в div',
-                    'Только в тег, у которого есть id',
+                    'To any tag',
+                    'Only in div',
+                    'Only in tag which have id',
                 ],
                 correct: 0,
             },
             {
-                title: 'Как много компонентов может быть на сайте?',
+                title: 'How many components can be on a site?',
                 variants: [
-                    'Максимум 100',
-                    'Максимум 200',
-                    'Неограниченное количество',
+                    'Maximum 100',
+                    'Maximum 200',
+                    'Unlimited amount',
                 ],
                 correct: 2,
             },
